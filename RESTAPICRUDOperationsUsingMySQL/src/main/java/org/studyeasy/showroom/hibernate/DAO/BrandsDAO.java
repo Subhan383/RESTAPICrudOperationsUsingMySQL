@@ -21,6 +21,13 @@ public class BrandsDAO {
 				.getResultList();
 		return list;
 	}
+	
+	public BrandEntity getBrand(int brandId) {
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
+     	return session.get(BrandEntity.class, brandId);
+	
+	}
 
 	public void addBrand(BrandEntity brand) {
 		Session session = factory.getCurrentSession();
@@ -49,6 +56,8 @@ public class BrandsDAO {
 		session.getTransaction().commit();
 		
 	}
+
+	
 
 }
 
