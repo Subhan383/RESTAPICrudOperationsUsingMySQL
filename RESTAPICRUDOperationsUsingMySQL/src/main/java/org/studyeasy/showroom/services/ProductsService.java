@@ -2,8 +2,8 @@ package org.studyeasy.showroom.services;
 
 import java.util.List;
 
-import org.studyeasy.showroom.hibernate.DAO.ProductsDAO;
-import org.studyeasy.showroom.hibernate.entities.ProductEntity;
+import org.studyeasy.showroom.DAO.ProductsDAO;
+import org.studyeasy.showroom.model.ProductEntity;
 
 public class ProductsService {
 	

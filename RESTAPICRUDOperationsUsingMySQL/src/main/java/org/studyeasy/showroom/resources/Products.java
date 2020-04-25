@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import org.studyeasy.showroom.hibernate.entities.ProductEntity;
+import org.studyeasy.showroom.model.ProductEntity;
 import org.studyeasy.showroom.services.ProductsService;
 
 @Path("/showroom/brands")

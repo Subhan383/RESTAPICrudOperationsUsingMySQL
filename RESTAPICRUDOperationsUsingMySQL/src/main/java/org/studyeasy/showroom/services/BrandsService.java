@@ -2,8 +2,8 @@ package org.studyeasy.showroom.services;
 
 import java.util.List;
 
-import org.studyeasy.showroom.hibernate.DAO.BrandsDAO;
-import org.studyeasy.showroom.hibernate.entities.BrandEntity;
+import org.studyeasy.showroom.DAO.BrandsDAO;
+import org.studyeasy.showroom.model.BrandEntity;
 
 public class BrandsService {
 

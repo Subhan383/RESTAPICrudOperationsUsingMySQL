@@ -1,6 +1,7 @@
 package org.studyeasy.showroom.resources;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -17,8 +18,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
-import org.studyeasy.showroom.hibernate.entities.BrandEntity;
-import org.studyeasy.showroom.hibernate.entities.ProductEntity;
+import org.studyeasy.showroom.model.BrandEntity;
+import org.studyeasy.showroom.model.Link;
+import org.studyeasy.showroom.model.ProductEntity;
 import org.studyeasy.showroom.services.BrandsService;
 import org.studyeasy.showroom.services.ProductsService;
 
@@ -37,8 +39,17 @@ public class Brands {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{brandId}")
-	public BrandEntity getBrand(@PathParam("brandId") int brandId) {
-	  return service.getBrand(brandId);
+	public BrandEntity getBrand(@PathParam("brandId") int brandId,@Context UriInfo uri) {
+		Link self=new Link(uri.getAbsolutePath().toString(), "self");
+		//Link products=new Link(uri.getAbsolutePathBuilder().path("products").build().toString(), "products");
+		String productsUri=uri.getBaseUriBuilder().path(Products.class).path(Products.class, "getProductsByBrand").resolveTemplate("brandId", brandId).toString();
+		Link products=new Link(productsUri,"products");
+		BrandEntity brand=service.getBrand(brandId);
+		List<Link> links=new ArrayList<Link>();
+		links.add(self);
+		links.add(products);
+		brand.setLinks(links);
+	    return brand;
 	}
 
 	@POST

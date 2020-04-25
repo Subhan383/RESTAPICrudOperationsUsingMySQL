@@ -1,11 +1,11 @@
-package org.studyeasy.showroom.hibernate.DAO;
+package org.studyeasy.showroom.DAO;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.studyeasy.showroom.hibernate.entities.BrandEntity;
+import org.studyeasy.showroom.model.BrandEntity;
 
 public class BrandsDAO {
 	

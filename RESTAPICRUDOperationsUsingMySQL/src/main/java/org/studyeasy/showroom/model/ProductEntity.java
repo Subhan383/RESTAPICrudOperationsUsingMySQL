@@ -1,4 +1,4 @@
-package org.studyeasy.showroom.hibernate.entities;
+package org.studyeasy.showroom.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,6 @@
-package org.studyeasy.showroom.hibernate.entities;
+package org.studyeasy.showroom.model;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 @Entity(name="brands")
@@ -14,10 +17,13 @@ public class BrandEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="brandId")
-	int brandId;
+	private int brandId;
 	
 	@Column(name="brandName")
-	String brandName;
+	private String brandName;
+	
+	@Transient
+	private List<Link> links;
 	
 	public BrandEntity() {
 		
@@ -45,4 +51,15 @@ public class BrandEntity {
 		this.brandName = brandName;
 	}
 
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
+	
+
+	
 }
